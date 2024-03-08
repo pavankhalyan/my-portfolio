@@ -1,0 +1,45 @@
+
+
+<IfModule mod_rewrite.c>
+
+    RewriteCond %{HTTP:Accept-Encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}\.gz -f
+    RewriteRule \.(css|ics|js|json|html|svg)$ %{REQUEST_URI}.gz [L]
+
+    # Prevent mod_deflate double gzip
+    RewriteRule \.gz$ - [E=no-gzip:1]
+
+    <FilesMatch "\.gz$">
+
+        <IfModule mod_mime.c>
+            # (1)
+            RemoveType gz
+
+            # Serve correct content types
+            AddType text/css              css.gz
+            AddType text/calendar         ics.gz
+            AddType text/javascript       js.gz
+            AddType application/json      json.gz
+            AddType text/html             html.gz
+            AddType image/svg+xml         svg.gz
+
+            # Serve correct content charset
+            AddCharset utf-8 .css.gz \
+                             .ics.gz \
+                             .js.gz \
+                             .json.gz
+        </IfModule>
+
+        <IfModule mod_headers.c>
+            # Force proxies to cache gzipped and non-gzipped files separately
+            Header append Vary Accept-Encoding
+        </IfModule>
+
+    </FilesMatch>
+
+    <IfModule mod_mime.c>
+        # Serve correct encoding type
+        AddEncoding gzip .gz
+    </IfModule>
+
+</IfModule>
