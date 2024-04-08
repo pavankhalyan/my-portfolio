@@ -324,7 +324,7 @@ export const contactData = {
     en: "Contact",
   },
   description: {
-    en: "Write me a message and I will get back to you.",
+    // en: "Write me a message and I will get back to you.",
   },
   inputfields: [
     {
