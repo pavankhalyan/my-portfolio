@@ -1,6 +1,6 @@
 import bannerBg from "../assets/img/bannerbg.webp";
-import projectImage from "../assets/img/IMG-20240302-WA0013.jpg"; 
-import secondProjectImage from "../assets/img/Screenshot 2024-07-02 144358.png"; 
+import projectImage from "../assets/img/photo.png";
+import secondProjectImage from "../assets/img/Screenshot 2024-07-02 144358.png";
 import React, { useRef } from "react";
 import Button from "./Button";
 import LiveTicker from "./ParallaxText";
@@ -101,7 +101,7 @@ const ProjectSlider: React.FC = () => {
                     <p className="text-white">
                       {project.description_EN}
                     </p>
-                    {index !== 0 && (
+                    {index > 1 && (
                       <>
                         <div className="technologies">
                           <h3>
@@ -175,7 +175,7 @@ const ProjectSlider: React.FC = () => {
                   alt={project.image}
                   className="h-[35vh] w-full object-cover object-top rounded-3xl"
                 />
-                {index !== 0 && (
+                {index > 1 && (
                   <>
                     <div className="buttons flex gap-10 max-lg:flex-col">
                       <Button
