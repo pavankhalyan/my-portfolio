@@ -60,7 +60,7 @@ export const headerIntroData = {
       color: "main-btn",
     },
     {
-      name: "Projects",
+      name: "",
       label: {
         en: "My Projects",
       },
@@ -73,29 +73,22 @@ export const headerIntroData = {
 
 export const projectsData = [
   {
-    title: "",
-    description:
-      "",
-    description_EN:
-      "",
+    title: "Project Title 1",
+    description: "Description of Project 1.",
+    description_EN: "Description of Project 1 in English.",
     technologies: [
       { name: "Html", icon: htmlicon },
       { name: "CSS", icon: cssicon },
       { name: "JavaScript", icon: javascripticon },
-      ,
       { name: "React", icon: reacticon },
-      ,
-      ,
       { name: "MongoDB", icon: mongodbicon },
       { name: "Express", icon: expressiconwhite },
       { name: "Node.js", icon: nodejsicon },
       { name: "Figma", icon: figmaicon },
-      ,
     ],
     image: silentmoonMockup,
-    deploymenturl: "",
-    githuburl:
-      "",
+    deploymenturl: "https://example.com/deployment1",
+    githuburl: "https://github.com/example/project1",
     githubicon: FiGithub,
     deploymenticon: FiLink,
     colors: {
@@ -106,11 +99,9 @@ export const projectsData = [
     },
   },
   {
-    title: "",
-    description:
-      "",
-    description_EN:
-      "",
+    title: "Project Title 2",
+    description: "Description of Project 2.",
+    description_EN: "Description of Project 2 in English.",
     technologies: [
       { name: "Html", icon: htmlicon },
       { name: "CSS", icon: cssicon },
@@ -126,8 +117,8 @@ export const projectsData = [
       { name: "Trello", icon: trelloicon },
     ],
     image: instorMockup,
-    deploymenturl: "",
-    githuburl: "",
+    deploymenturl: "https://example.com/deployment2",
+    githuburl: "https://github.com/example/project2",
     githubicon: FiGithub,
     deploymenticon: FiLink,
     colors: {
@@ -135,6 +126,62 @@ export const projectsData = [
       second: "secondary-btn",
       icon: "white",
       projectcolor: "#E3964A",
+    },
+  },
+  {
+    title: "Project Title 3",
+    description: "Description of Project 3.",
+    description_EN: "Description of Project 3 in English.",
+    technologies: [
+      { name: "Html", icon: htmlicon },
+      { name: "CSS", icon: cssicon },
+      { name: "JavaScript", icon: javascripticon },
+      { name: "React", icon: reacticon },
+      { name: "MongoDB", icon: mongodbicon },
+      { name: "Express", icon: expressiconwhite },
+      { name: "Node.js", icon: nodejsicon },
+      { name: "Figma", icon: figmaicon },
+    ],
+    image: silentmoonMockup,
+    deploymenturl: "https://example.com/deployment3",
+    githuburl: "https://github.com/example/project3",
+    githubicon: FiGithub,
+    deploymenticon: FiLink,
+    colors: {
+      main: "main-btn",
+      second: "secondary-btn",
+      icon: "white",
+      projectcolor: "#A5C8E0",
+    },
+  },
+  {
+    title: "Project Title 4",
+    description: "Description of Project 4.",
+    description_EN: "Description of Project 4 in English.",
+    technologies: [
+      { name: "Html", icon: htmlicon },
+      { name: "CSS", icon: cssicon },
+      { name: "JavaScript", icon: javascripticon },
+      { name: "React", icon: reacticon },
+      { name: "JWT & Bcrypt", icon: jwticon },
+      { name: "Axios", icon: axiosicon },
+      { name: "MongoDB", icon: mongodbicon },
+      { name: "Express", icon: expressiconwhite },
+      { name: "Node.js", icon: nodejsicon },
+      { name: "Figma", icon: figmaicon },
+      { name: "Render", icon: rendericon },
+      { name: "Trello", icon: trelloicon },
+    ],
+    image: instorMockup,
+    deploymenturl: "https://example.com/deployment4",
+    githuburl: "https://github.com/example/project4",
+    githubicon: FiGithub,
+    deploymenticon: FiLink,
+    colors: {
+      main: "main-btn",
+      second: "secondary-btn",
+      icon: "white",
+      projectcolor: "#F0E68C",
     },
   },
 ] as const;

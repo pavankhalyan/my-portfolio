@@ -1,6 +1,6 @@
 import bannerBg from "../assets/img/bannerbg.webp";
-import projectImage from "../assets/img/IMG-20240302-WA0013.jpg"; // Import the first new image
-import secondProjectImage from "../assets/img/Screenshot 2024-07-02 144358.png"; // Import the second new image
+import projectImage from "../assets/img/IMG-20240302-WA0013.jpg"; 
+import secondProjectImage from "../assets/img/Screenshot 2024-07-02 144358.png"; 
 import React, { useRef } from "react";
 import Button from "./Button";
 import LiveTicker from "./ParallaxText";
@@ -10,7 +10,6 @@ import { Autoplay, EffectCards, Pagination } from "swiper/modules";
 import { ToastContainer, toast } from "react-toastify";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { useSectionInView } from "../assets/lib/hooks";
-import { useLanguage } from "../context/language-context";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
 import "swiper/css";
@@ -19,7 +18,6 @@ import "swiper/css/pagination";
 
 const ProjectSlider: React.FC = () => {
   const { ref } = useSectionInView("Projects");
-  const { language } = useLanguage();
   const animationReference = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: animationReference,
@@ -28,11 +26,7 @@ const ProjectSlider: React.FC = () => {
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
   const notifyServerRequest = () => {
-    if (language === "DE") {
-      toast.info(toastMessages.loadingProject.de);
-    } else {
-      toast.info(toastMessages.loadingProject.en);
-    }
+    toast.info(toastMessages.loadingProject.en);
   };
 
   return (
@@ -75,11 +69,11 @@ const ProjectSlider: React.FC = () => {
             >
               <p className="text-[--white] mt-16 mb-6">
                 <span className="text-[--orange]">&lt;</span>
-                {language === "DE" ? "Projekte" : "Projects"}
+                Projects
                 <span className="text-[--orange]">/&gt;</span>
               </p>
               <h2 className="text-[--white] mb-16">
-                {language === "DE" ? "Meine Projekte" : "My Projects"}
+                My Projects and Achievements
               </h2>
             </motion.div>
             <Swiper
@@ -100,20 +94,113 @@ const ProjectSlider: React.FC = () => {
               {projectsData.map((project, index: number) => (
                 <SwiperSlide
                   key={index}
-                  className="quote-outer-container bg-[--darkblue] text-[--white] flex flex-row justify-between  rounded-2xl p-20 text-left max-lg:hidden"
+                  className="quote-outer-container bg-[--darkblue] text-[--white] flex flex-row justify-between rounded-2xl p-20 text-left max-lg:hidden"
                 >
                   <div className="w-[55%] flex flex-col gap-12 justify-between">
                     <h2>{project.title}</h2>
                     <p className="text-white">
-                      {language === "DE"
-                        ? project.description
-                        : project.description_EN}
+                      {project.description_EN}
+                    </p>
+                    {index !== 0 && (
+                      <>
+                        <div className="technologies">
+                          <h3>
+                            Technologies
+                          </h3>
+                          <div className="grid grid-cols-6 gap-10 p-4">
+                            {project.technologies.map(
+                              (technology, innerIndex: number) => (
+                                <img
+                                  key={innerIndex}
+                                  src={technology.icon}
+                                  alt={`${project.title}-icon`}
+                                  className="h-[5rem] w-[60%]"
+                                  data-tooltip-id="my-tooltip"
+                                  data-tooltip-content={technology.name}
+                                />
+                              )
+                            )}
+                          </div>
+                        </div>
+                        <div className="buttons flex gap-10">
+                          <Button
+                            label="Live Demo"
+                            link={project.deploymenturl}
+                            iconSVG={project.deploymenticon}
+                            buttoncolor={project.colors.main}
+                            iconcolor={project.colors.icon}
+                            onClick={notifyServerRequest}
+                          />
+                          <Button
+                            label="Github Repository"
+                            link={project.githuburl}
+                            iconSVG={project.githubicon}
+                            buttoncolor={project.colors.main}
+                            iconcolor={project.colors.icon}
+                          />
+                        </div>
+                      </>
+                    )}
+                  </div>
+                  <div className="right-content relative h-[40rem] overflow-hidden rounded-xl w-[40%] transition-all duration-200 shadow-2xl">
+                    <img
+                      src={
+                        index === 0
+                          ? projectImage
+                          : index === 1
+                          ? secondProjectImage
+                          : project.image
+                      }
+                      alt={`${project.title}-project-mockup`}
+                      className="w-full h-auto transition-all duration-[6000ms] transform opacity-100 hover:translate-y-[-57%]"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            {projectsData.map((project, index: number) => (
+              <article
+                key={index}
+                className="bg-darkblue flex flex-col gap-10 w-[80%] h-full border-lightblue border-[0.4rem] p-8 rounded-xl mb-10 min-[1024px]:hidden max-lg:w-[90%]"
+              >
+                <h2 className="text-white">{project.title}</h2>
+                <img
+                  src={
+                    index === 0
+                      ? projectImage
+                      : index === 1
+                      ? secondProjectImage
+                      : project.image
+                  }
+                  alt={project.image}
+                  className="h-[35vh] w-full object-cover object-top rounded-3xl"
+                />
+                {index !== 0 && (
+                  <>
+                    <div className="buttons flex gap-10 max-lg:flex-col">
+                      <Button
+                        label="Live Demo"
+                        link={project.deploymenturl}
+                        iconSVG={project.deploymenticon}
+                        buttoncolor={project.colors.main}
+                        iconcolor={project.colors.icon}
+                      />
+                      <Button
+                        label="Github Repository"
+                        link={project.githuburl}
+                        iconSVG={project.githubicon}
+                        buttoncolor={project.colors.main}
+                        iconcolor={project.colors.icon}
+                      />
+                    </div>
+                    <p className="text-white max-lg:text-4xl">
+                      {project.description_EN}
                     </p>
                     <div className="technologies">
-                      <h3>
-                        {language === "DE" ? "Technologien" : "Technologies"}
+                      <h3 className="text-white">
+                        Technologies
                       </h3>
-                      <div className="grid grid-cols-6 gap-10 p-4">
+                      <div className="grid grid-cols-3 gap-10 p-4">
                         {project.technologies.map(
                           (technology, innerIndex: number) => (
                             <img
@@ -128,97 +215,8 @@ const ProjectSlider: React.FC = () => {
                         )}
                       </div>
                     </div>
-                    <div className="buttons flex gap-10">
-                      <Button
-                        label="Live Demo"
-                        link={project.deploymenturl}
-                        iconSVG={project.deploymenticon}
-                        buttoncolor={project.colors.main}
-                        iconcolor={project.colors.icon}
-                        onClick={notifyServerRequest}
-                      />
-                      <Button
-                        label="Github Repository"
-                        link={project.githuburl}
-                        iconSVG={project.githubicon}
-                        buttoncolor={project.colors.main}
-                        iconcolor={project.colors.icon}
-                      />
-                    </div>
-                  </div>
-                  <div className="right-content relative h-[40rem] overflow-hidden rounded-xl w-[40%] transition-all duration-200 shadow-2xl">
-                    <img
-                      src={
-                        index === 0
-                          ? projectImage
-                          : index === 1
-                          ? secondProjectImage
-                          : project.image
-                      } // Use the second new image for the second slide
-                      alt={`${project.title}-project-mockup`}
-                      className="w-full h-auto transition-all duration-[6000ms] transform opacity-100 hover:translate-y-[-57%]"
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            {projectsData.map((project, index: number) => (
-              <article
-                key={index}
-                className="bg-darkblue flex flex-col gap-10 w-[80%] h-full  border-lightblue border-[0.4rem] p-8 rounded-xl mb-10 min-[1024px]:hidden max-lg:w-[90%]"
-              >
-                <h2 className="text-white">{project.title}</h2>
-                <img
-                  src={
-                    index === 0
-                      ? projectImage
-                      : index === 1
-                      ? secondProjectImage
-                      : project.image
-                  } // Use the second new image for the second slide
-                  alt={project.image}
-                  className="h-[35vh] w-full object-cover object-top rounded-3xl"
-                />
-                <div className="buttons flex gap-10 max-lg:flex-col">
-                  <Button
-                    label="Live Demo"
-                    link={project.deploymenturl}
-                    iconSVG={project.deploymenticon}
-                    buttoncolor={project.colors.main}
-                    iconcolor={project.colors.icon}
-                  />
-                  <Button
-                    label="Github Repository"
-                    link={project.githuburl}
-                    iconSVG={project.githubicon}
-                    buttoncolor={project.colors.main}
-                    iconcolor={project.colors.icon}
-                  />
-                </div>
-                <p className="text-white max-lg:text-4xl">
-                  {language === "DE"
-                    ? project.description
-                    : project.description_EN}
-                </p>
-                <div className="technologies">
-                  <h3 className="text-white">
-                    {language === "DE" ? "Technologien" : "Technologies"}
-                  </h3>
-                  <div className="grid grid-cols-3 gap-10 p-4">
-                    {project.technologies.map(
-                      (technology, innerIndex: number) => (
-                        <img
-                          key={innerIndex}
-                          src={technology.icon}
-                          alt={`${project.title}-icon`}
-                          className="h-[5rem] w-[60%]"
-                          data-tooltip-id="my-tooltip"
-                          data-tooltip-content={technology.name}
-                        />
-                      )
-                    )}
-                  </div>
-                </div>
+                  </>
+                )}
               </article>
             ))}
           </div>
@@ -232,8 +230,6 @@ const ProjectSlider: React.FC = () => {
           fontSize: "1.5rem",
           backgroundColor: "var(--orange)",
         }}
-     
-
       />
     </React.Fragment>
   );
