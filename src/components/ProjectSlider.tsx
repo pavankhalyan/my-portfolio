@@ -50,7 +50,7 @@ const ProjectSlider: React.FC = () => {
           theme="light"
         />
         <div
-          className="quote-outer-container bg-[--darkblue] -rotate-3 flex justify-center items-center scale-110 pt-32 pb-32 max-lg:pt-16 max-lg:pb-16 max-lg:-ml-44 max-lg:-mr-44 max-lg:scale-100"
+             className="quote-outer-container bg-[--darkblue] -rotate-3 flex justify-center items-center scale-110 pt-32 pb-32 max-lg:pt-16 max-lg:pb-16 max-lg:-ml-44 max-lg:-mr-44 max-lg:scale-100"
           style={{
             backgroundImage: `url(${bannerBg})`,
             backgroundPosition: "center",

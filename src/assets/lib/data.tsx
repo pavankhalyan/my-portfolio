@@ -73,9 +73,9 @@ export const headerIntroData = {
 
 export const projectsData = [
   {
-    title: "Project Title 1",
+    title: "Freshify",
     description: "Description of Project 1.",
-    description_EN: "Description of Project 1 in English.",
+    description_EN: "Freshify - Freshness Beyond Border is an innovative project developed by our team that secured 1st place at the Coimbatore Institute of Technology. This project focuses on ensuring the freshness of fruits through advanced sensing technology. It can detect whether a fruit is ripened and sends an alert message through an app if the fruit has reached the desired ripeness. Developed as a product, Freshify aims to provide a practical solution for monitoring and maintaining fruit freshness, making it easier for consumers to enjoy perfectly ripened fruits.",
     technologies: [
       { name: "Html", icon: htmlicon },
       { name: "CSS", icon: cssicon },
@@ -99,9 +99,9 @@ export const projectsData = [
     },
   },
   {
-    title: "Project Title 2",
+    title: "Neuro Vision",
     description: "Description of Project 2.",
-    description_EN: "Description of Project 2 in English.",
+    description_EN: "Neuro Vision is an innovative project developed by our team that secured 3rd place in the Tiruppur Road Safety Ideathon 2023, earning a cash prize of ₹15,000. The project focuses on enhancing road safety through the use of advanced technology. It includes a comprehensive ambulance tracking device, which ensures timely and efficient tracking of emergency vehicles. Additionally, the project incorporates an AI model designed for license plate detection and accident detection, aimed at improving response times and overall road safety.",
     technologies: [
       { name: "Html", icon: htmlicon },
       { name: "CSS", icon: cssicon },
