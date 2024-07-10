@@ -18,32 +18,21 @@ const Contact: React.FC = () => {
   const [cursor, setCursor] = useState<string>("");
   const [setLastUpdatedField] = useState<string | null>(null);
   const { ref } = useSectionInView("Contact");
-  const { language } = useLanguage();
   const { theme } = useTheme();
   const [error, setError] = useState<string | any>(null);
 
   const notifySentForm: React.FormEventHandler<HTMLFormElement> = async (e) => {
     setError(null);
-    console.log(error);
 
     e.preventDefault();
     const data = new FormData(e.currentTarget);
 
     try {
       const response = await axios.post(apiBaseUrl, data);
-      console.log(response);
-      if (language === "DE") {
-        toast.success(toastMessages.successEmailSent.de);
-      } else {
-        toast.success(toastMessages.successEmailSent.en);
-      }
+      toast.success(toastMessages.successEmailSent.en);
     } catch (error) {
-      console.log(error);
-      if (language === "DE") {
-        toast.error(toastMessages.failedEmailSent.de);
-      } else {
-        toast.error(toastMessages.failedEmailSent.en);
-      }
+      console.error(error);
+      toast.error(toastMessages.failedEmailSent.en);
       setError("An Error occurred, try again later");
     }
   };
@@ -96,14 +85,12 @@ const Contact: React.FC = () => {
         >
           <p className="text-[--black] mb-6">
             <span className="text-[--orange]">&lt;</span>
-            {language === "DE" ? contactData.title.de : contactData.title.en}
+            {contactData.title.en}
             <span className="text-[--orange]">/&gt;</span>
           </p>
 
           <h2 className="text-[--black] text-center">
-            {language === "DE"
-              ? contactData.description.de
-              : contactData.description.en}
+            {contactData.description.en}
           </h2>
         </div>
         <div className="flex flex-row justify-center items-start px-32 pt-32 mb-32 max-lg:flex-col max-lg:p-10">
@@ -116,11 +103,7 @@ const Contact: React.FC = () => {
               <input
                 key={index}
                 type={input.type}
-                placeholder={
-                  language === "DE"
-                    ? `${input.placeholder.de}`
-                    : `${input.placeholder.en}`
-                }
+                placeholder={input.placeholder.en}
                 name={input.name}
                 value={
                   input.name === "name"
@@ -146,16 +129,12 @@ const Contact: React.FC = () => {
                     ? "bg-[--blackblue] dark-mode-shadow "
                     : "bg-[--icewhite] dark-shadow "
                 } w-full p-3 rounded-lg border border-gray-300 outline-none focus:border-blue-500`}
-                style={{ width: "65%", height:"120%" }}
+                style={{ width: "65%" }}
               />
             ))}
             <textarea
               rows={contactData.textarea.rows}
-              placeholder={
-                language === "DE"
-                  ? `${contactData.textarea.placeholder.de}`
-                  : `${contactData.textarea.placeholder.en}`
-              }
+              placeholder={contactData.textarea.placeholder.en}
               name={contactData.textarea.name}
               onFocus={() => {
                 handleInputFocus(contactData.textarea.name);
@@ -171,19 +150,11 @@ const Contact: React.FC = () => {
                   ? "bg-[--blackblue] dark-mode-shadow"
                   : "bg-[--icewhite] dark-shadow"
               } w-full p-3 rounded-lg border border-gray-300 outline-none focus:border-blue-500`}
-              style={{ width: "65%", height:"120%" }}
+              style={{ width: "65%" }}
             />
-            <p>
-              {language === "DE"
-                ? `${contactData.privacyOptIn.description.de}`
-                : `${contactData.privacyOptIn.description.en}`}
-            </p>
+            <p>{contactData.privacyOptIn.description.en}</p>
             <Button
-              value={
-                language === "DE"
-                  ? `${contactData.button.value.de}`
-                  : `${contactData.button.value.en}`
-              }
+              value={contactData.button.value.en}
               iconSVG={contactData.icon}
               buttoncolor={contactData.colors.main}
               iconcolor={contactData.colors.icon}
@@ -191,7 +162,7 @@ const Contact: React.FC = () => {
               elementType="input"
             />
             <ToastContainer
-              className="w-max text-3xl block p-3 max-lg:w-full "
+              className="w-max text-3xl block p-3 max-lg:w-full"
               position="bottom-center"
               autoClose={5000}
               hideProgressBar={false}
