@@ -31,8 +31,7 @@ const AboutMe: React.FC = () => {
       progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
     }
   };
-  const paragraphs =
-    language === "DE" ? aboutMeData.paragraphs_EN : aboutMeData.paragraphs_EN;
+  const paragraphs = aboutMeData.paragraphs_EN;
 
   return (
     <React.Fragment>
@@ -48,26 +47,18 @@ const AboutMe: React.FC = () => {
           >
             <p className="text-[--black] mb-6">
               <span className="text-orange">&lt;</span>
-              
-              {language === "DE" ? 
-              //@ts-ignore
-              aboutMeData.title : 
-              aboutMeData.title_EN}
+              {aboutMeData.title_EN}
               <span className="text-orange">/&gt;</span>
             </p>
 
             <h2 className="text-[--black] text-center max-lg:text-left break-words">
-              {language === "DE"
-              //@ts-ignore
-                ? aboutMeData.description
-              //@ts-ignore
-                : aboutMeData.description_EN}
+              {aboutMeData.description_EN}
             </h2>
           </motion.div>
         </div>
         <div className="flex flex-row justify-center gap-6 items-center pl-32 pr-32 mb-16  max-lg:flex-col max-lg:p-16 min-[1921px]:px-[45rem] min-[1921px]:mb-48">
           <article className="pl-60 max-lg:p-0">
-            <img src={me} alt={me} />
+            <img src={me} alt="Me" />
           </article>
           <Swiper
             spaceBetween={100}

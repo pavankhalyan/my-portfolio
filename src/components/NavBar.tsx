@@ -4,16 +4,13 @@ import { navLinks } from "../assets/lib/data";
 import ScrollToAnchor from "./Listener";
 import { useActiveSectionContext } from "../context/active-section-context";
 import { useTheme } from "../context/theme-context";
-import { useLanguage } from "../context/language-context";
 import LanguageSwitch from "./LanguageSwitch";
 
 const NavBar: React.FC = () => {
   const { theme } = useTheme();
-  const { language } = useLanguage();
-
-  const [isSticky, setIsSticky] = useState(false);
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSectionContext();
+  const [isSticky, setIsSticky] = useState(false);
   const [isMobileMenuActive, setIsMobileMenuActive] = useState(false);
 
   useEffect(() => {
@@ -80,7 +77,7 @@ const NavBar: React.FC = () => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className={`relative ${linkClasses}`}
-        aria-aria-current={link}
+        aria-current={link}
       >
         <span>
           {leftArrow}
@@ -112,8 +109,7 @@ const NavBar: React.FC = () => {
                   <span className="text-[--orange] absolute -left-5 top-0">
                     &lt;
                   </span>
-                  {language === "DE" ? link.de : link.en}
-                  {/* {link.de.toLocaleUpperCase()} */}
+                  {link.en}
                 </div>
               ) : (
                 <div
@@ -122,9 +118,7 @@ const NavBar: React.FC = () => {
                     setTimeOfLastClick(Date.now());
                   }}
                 >
-                  {language === "DE" ? link.de : link.en}
-
-                  {/* {link.de.toLocaleUpperCase()} */}
+                  {link.en}
                 </div>
               )}
             </CustomNavLink>
