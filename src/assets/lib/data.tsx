@@ -24,7 +24,7 @@ import shopifyicon from "../../assets/icons/shopifyicon.svg";
 import webflowicon from "../../assets/icons/webflowicon.svg";
 import tastyMockup from "../../assets/img/tasty_mockup.webp";
 import instorMockup from "../../assets/img/instor_mockup.webp";
-import silentmoonMockup from "../../assets/img/silentmoon_mockup.webp";
+import silentmoonMockup from "../../assets/img/silentmoon_mockup.webp"; 
 import profilepicture from "../img/me2.jpg";
 import caricon from "../../assets/icons/car-icon.svg";
 import travelicon from "../../assets/icons/travel-icon.svg";
@@ -129,12 +129,10 @@ export const projectsData = [
     },
   },
   {
-    title: "Project Title 3",
+    title: "Freshify-App",
     description: "Description of Project 3.",
-    description_EN: "Description of Project 3 in English.",
+    description_EN: "Freshify revolutionizes fruit and vegetable preservation using ethylene gas sensors and NODE MCU technology. By deploying these sensors in storage units, the system detects ripeness in real-time. When produce reaches optimal ripeness, Freshify promptly notifies customers, ensuring peak freshness.",
     technologies: [
-      { name: "Html", icon: htmlicon },
-      { name: "CSS", icon: cssicon },
       { name: "JavaScript", icon: javascripticon },
       { name: "React", icon: reacticon },
       { name: "MongoDB", icon: mongodbicon },
@@ -143,10 +141,8 @@ export const projectsData = [
       { name: "Figma", icon: figmaicon },
     ],
     image: silentmoonMockup,
-    deploymenturl: "https://example.com/deployment3",
-    githuburl: "https://github.com/example/project3",
+    githuburl: "https://github.com/kingof64sqrs/Freshify_update",
     githubicon: FiGithub,
-    deploymenticon: FiLink,
     colors: {
       main: "main-btn",
       second: "secondary-btn",
@@ -155,7 +151,7 @@ export const projectsData = [
     },
   },
   {
-    title: "Project Title 4",
+    title: "Neuro-Vision App",
     description: "Description of Project 4.",
     description_EN: "Description of Project 4 in English.",
     technologies: [

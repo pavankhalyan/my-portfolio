@@ -1,6 +1,7 @@
 import bannerBg from "../assets/img/bannerbg.webp";
 import projectImage from "../assets/img/photo.png";
 import secondProjectImage from "../assets/img/Screenshot 2024-07-02 144358.png";
+import freshifyAppImage from "../assets/img/freshify-app.png";  // Import the new image
 import React, { useRef } from "react";
 import Button from "./Button";
 import LiveTicker from "./ParallaxText";
@@ -124,14 +125,6 @@ const ProjectSlider: React.FC = () => {
                         </div>
                         <div className="buttons flex gap-10">
                           <Button
-                            label="Live Demo"
-                            link={project.deploymenturl}
-                            iconSVG={project.deploymenticon}
-                            buttoncolor={project.colors.main}
-                            iconcolor={project.colors.icon}
-                            onClick={notifyServerRequest}
-                          />
-                          <Button
                             label="Github Repository"
                             link={project.githuburl}
                             iconSVG={project.githubicon}
@@ -149,6 +142,8 @@ const ProjectSlider: React.FC = () => {
                           ? projectImage
                           : index === 1
                           ? secondProjectImage
+                          : index === 2  // Use freshify-app.png for the third slide
+                          ? freshifyAppImage
                           : project.image
                       }
                       alt={`${project.title}-project-mockup`}
@@ -170,6 +165,8 @@ const ProjectSlider: React.FC = () => {
                       ? projectImage
                       : index === 1
                       ? secondProjectImage
+                      : index === 2  // Use freshify-app.png for the third slide
+                      ? freshifyAppImage
                       : project.image
                   }
                   alt={project.image}
@@ -178,13 +175,6 @@ const ProjectSlider: React.FC = () => {
                 {index > 1 && (
                   <>
                     <div className="buttons flex gap-10 max-lg:flex-col">
-                      <Button
-                        label="Live Demo"
-                        link={project.deploymenturl}
-                        iconSVG={project.deploymenticon}
-                        buttoncolor={project.colors.main}
-                        iconcolor={project.colors.icon}
-                      />
                       <Button
                         label="Github Repository"
                         link={project.githuburl}
