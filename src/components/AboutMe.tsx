@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import me from "../assets/img/me.webp";
 import { aboutMeData } from "../assets/lib/data";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,13 +7,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { useSectionInView } from "../assets/lib/hooks";
-import { useLanguage } from "../context/language-context";
 
 const AboutMe: React.FC = () => {
   const progressCircle = useRef<SVGSVGElement | null>(null);
   const progressContent = useRef<HTMLSpanElement | null>(null);
   const { ref } = useSectionInView("About me");
-  const { language } = useLanguage();
   const animationReference = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: animationReference,
@@ -33,9 +30,14 @@ const AboutMe: React.FC = () => {
   };
   const paragraphs = aboutMeData.paragraphs_EN;
 
+  // Dummy data for demonstration, replace with actual values as needed
+  const projectsDone = 5;
+  const leetcodeCount = 50;
+  const appsDeveloped = 3;
+
   return (
     <React.Fragment>
-      <section className="about-me relative mt-16 " id="about-me" ref={ref}>
+      <section className="about-me relative mt-16" id="about-me" ref={ref}>
         <div className="title-container flex flex-col gap-6 justify-center items-center p-32 w-1/2 max-lg:w-full max-lg:p-16 max-lg:items-start">
           <motion.div
             ref={animationReference}
@@ -56,10 +58,19 @@ const AboutMe: React.FC = () => {
             </h2>
           </motion.div>
         </div>
-        <div className="flex flex-row justify-center gap-6 items-center pl-32 pr-32 mb-16  max-lg:flex-col max-lg:p-16 min-[1921px]:px-[45rem] min-[1921px]:mb-48">
-          <article className="pl-60 max-lg:p-0">
-            <img src={me} alt="Me" />
-          </article>
+        <div className="flex flex-row justify-center gap-6 items-center pl-32 pr-32 mb-16 max-lg:flex-col max-lg:p-16 min-[1921px]:px-[45rem] min-[1921px]:mb-48">
+          <div className="flex flex-col gap-6 bg-[--darkblue] text-[--white] p-20 rounded-2xl border-solid border-[0.4rem] border-[--lightblue] w-1/2 h-auto max-lg:w-full max-lg:h-auto hover:border-orange duration-500 transition-all">
+            <h3 className="text-6xl mb-4">Statistics</h3>
+            <p className="text-4xl">
+              <strong>Number of Projects Done:</strong> {projectsDone}
+            </p>
+            <p className="text-4xl">
+              <strong>Leetcode Count:</strong> {leetcodeCount}
+            </p>
+            <p className="text-4xl">
+              <strong>Number of App Developed:</strong> {appsDeveloped}
+            </p>
+          </div>
           <Swiper
             spaceBetween={100}
             centeredSlides={true}
@@ -97,9 +108,9 @@ const AboutMe: React.FC = () => {
                       <span className="text-orange">&lt;</span>h3
                       <span className="text-orange">/&gt;</span>
                     </p>
-                    <div className="flex justify-between items-center w-1 h-[100%] max-lg:flex-row max-lg:w-[10rem]  max-lg:bg-lightblue">
+                    <div className="flex justify-between items-center w-1 h-[100%] max-lg:flex-row max-lg:w-[10rem] max-lg:bg-lightblue">
                       <div></div>
-                      <div className="w-[0.5rem] bg-[--lightblue] h-[100%] max-lg:w-10  max-lg:bg-lightblue max-lg:h-[0.25rem]"></div>
+                      <div className="w-[0.5rem] bg-[--lightblue] h-[100%] max-lg:w-10 max-lg:bg-lightblue max-lg:h-[0.25rem]"></div>
                       <div></div>
                     </div>
                     <p className="text-white">
@@ -116,7 +127,7 @@ const AboutMe: React.FC = () => {
               </SwiperSlide>
             ))}
             <div
-              className="autoplay-progress absolute right-0 bottom-0 z-10 flex items-center justify-center font-bold text-orange text-4xl w-24 h-24 max-lg:w-16 max-lg:h-16 max-lg:text-3xl "
+              className="autoplay-progress absolute right-0 bottom-0 z-10 flex items-center justify-center font-bold text-orange text-4xl w-24 h-24 max-lg:w-16 max-lg:h-16 max-lg:text-3xl"
               slot="container-end"
             >
               <svg viewBox="0 0 48 48" ref={progressCircle}>
