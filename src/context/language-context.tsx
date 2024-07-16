@@ -1,6 +1,6 @@
 import { useEffect, useState, createContext, useContext } from "react";
 
-type language = "EN" | "DE";
+type language = "EN";
 
 type LanguageContextProviderProps = {
   children: React.ReactNode;
@@ -19,15 +19,9 @@ export default function LanguageContextProvider({
   const [language, setLanguage] = useState<language>("EN");
 
   const toggleLanguage = () => {
-    if (language === "EN") {
-      setLanguage("DE");
-      window.localStorage.setItem("language", "DE");
-      document.documentElement.classList.add("DE");
-    } else {
-      setLanguage("EN");
-      window.localStorage.setItem("language", "EN");
-      document.documentElement.classList.remove("DE");
-    }
+    setLanguage("EN");
+    window.localStorage.setItem("language", "EN");
+    document.documentElement.classList.remove("DE");
   };
 
   useEffect(() => {
@@ -37,13 +31,6 @@ export default function LanguageContextProvider({
 
     if (localLanguage) {
       setLanguage(localLanguage);
-
-      if (localLanguage === "DE") {
-        document.documentElement.classList.add("DE");
-      }
-    } else if (window.matchMedia("(prefers-color-scheme: DE)").matches) {
-      setLanguage("DE");
-      document.documentElement.classList.add("DE");
     }
   }, []);
 

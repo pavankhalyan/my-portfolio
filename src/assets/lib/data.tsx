@@ -48,7 +48,7 @@ export const headerIntroData = {
   },
   subtitle: "FULLSTACK DEVELOPER",
   description: {
-    en: " I'm Pavan Khalyan S, a fullstack developer with the goal of advancing my career and participating in inspiring projects. Here I present my work and my passion for web development. Let's shape digital solutions together and shape the future!",
+    en: "I'm Pavan Khalyan S, a visionary full-stack developer with a passion for crafting exceptional web experiences. Explore my diverse portfolio and discover my dedication to transforming ideas into cutting-edge solutions.",
   },
   buttons: [
     {
@@ -330,7 +330,7 @@ export const sideBarLeftSocials = [
 
 export const quotesData = [
   {
-    en: `"NOTHING GREAT COME EASY.YOU CAN ACHIEVE ANYTHING WITH OBSESSION AND PERSISTENCE"`,
+    en: `"IF YOU HAVE A DREAM TO CHASE, NOTHING CAN STOP YOU"`,
   },
   {
     en: `"ALL THAT LOVE YOU GAVE ME,THAT'S WHAT MADE ME"`,
