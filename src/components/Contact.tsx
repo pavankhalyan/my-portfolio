@@ -3,13 +3,12 @@ import Button from "./Button";
 import axios from "axios";
 import { contactData, toastMessages } from "../assets/lib/data.tsx";
 import { useSectionInView } from "../assets/lib/hooks";
-import { useLanguage } from "../context/language-context";
 import { ToastContainer, toast } from "react-toastify";
 import { useTheme } from "../context/theme-context";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact: React.FC = () => {
-  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || "";
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -23,17 +22,26 @@ const Contact: React.FC = () => {
 
   const notifySentForm: React.FormEventHandler<HTMLFormElement> = async (e) => {
     setError(null);
-
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+
+    const data = {
+      name,
+      email,
+      subject,
+      message,
+    };
 
     try {
-      const response = await axios.post(apiBaseUrl, data);
-      toast.success(toastMessages.successEmailSent.en);
+      const response = await axios.post(`${apiBaseUrl}/send`, data);
+      if (response.status === 200) {
+        toast.success(toastMessages.successEmailSent.en);
+      } else {
+        throw new Error('Failed to send email');
+      }
     } catch (error) {
-      console.error(error);
+      console.error('Error sending email:', error);
       toast.error(toastMessages.failedEmailSent.en);
-      setError("An Error occurred, try again later");
+      setError("An error occurred, try again later");
     }
   };
 
@@ -42,9 +50,7 @@ const Contact: React.FC = () => {
   };
 
   const handleInputChange = (
-    e:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
 
