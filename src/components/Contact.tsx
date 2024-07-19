@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Button from "./Button";
-import axios from "axios";
-import { contactData, toastMessages } from "../assets/lib/data.tsx";
+import emailjs from 'emailjs-com';
+import { contactData, toastMessages } from "../assets/lib/data";
 import { useSectionInView } from "../assets/lib/hooks";
 import { ToastContainer, toast } from "react-toastify";
 import { useTheme } from "../context/theme-context";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact: React.FC = () => {
-  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
-
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [subject, setSubject] = useState<string>("");
@@ -20,11 +18,11 @@ const Contact: React.FC = () => {
   const { theme } = useTheme();
   const [error, setError] = useState<string | any>(null);
 
-  const notifySentForm: React.FormEventHandler<HTMLFormElement> = async (e) => {
-    setError(null);
+  const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
 
-    const data = {
+    const templateParams = {
       name,
       email,
       subject,
@@ -32,8 +30,14 @@ const Contact: React.FC = () => {
     };
 
     try {
-      const response = await axios.post(`${apiBaseUrl}/send`, data);
-      if (response.status === 200) {
+      const response = await emailjs.send(
+        'service_xk1a4o8', // replace with your EmailJS service ID
+        'template_qpve2oq', // replace with your EmailJS template ID
+        templateParams,
+        'QpAZFNFLdN3gl1hp_' // replace with your EmailJS user ID
+      );
+
+      if (response.status === 200) { 
         toast.success(toastMessages.successEmailSent.en);
       } else {
         throw new Error('Failed to send email');
@@ -102,7 +106,7 @@ const Contact: React.FC = () => {
         <div className="flex flex-row justify-center items-start px-32 pt-32 mb-32 max-lg:flex-col max-lg:p-10">
           <form
             className="flex flex-col gap-6 justify-center items-center px-32 w-full max-lg:p-10"
-            onSubmit={notifySentForm}
+            onSubmit={sendEmail}
             autoComplete="off"
           >
             {contactData.inputfields.map((input, index) => (
