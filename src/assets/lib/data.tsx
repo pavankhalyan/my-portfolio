@@ -1,28 +1,17 @@
-import canvaicon from "../../assets/icons/canvaicon.svg";
 import figmaicon from "../../assets/icons/figmaicon.svg";
 import htmlicon from "../../assets/icons/htmlicon.svg";
 import cssicon from "../../assets/icons/cssicon.svg";
 import javascripticon from "../../assets/icons/javascripticon.svg";
 import typescripticon from "../../assets/icons/typescripticon.svg";
 import reacticon from "../../assets/icons/reacticon.svg";
-import nextjsicon from "../../assets/icons/nextjsicon.svg";
 import nodejsicon from "../../assets/icons/nodejsicon.svg";
 import tailwindcssicon from "../../assets/icons/tailwindicon.svg";
 import mongodbicon from "../../assets/icons/mongoicon.svg";
-import vuejsicon from "../../assets/icons/vueicon.svg";
 import expressicon from "../../assets/icons/expressicon.svg";
-import sassscssicon from "../../assets/icons/sassicon.svg";
 import trelloicon from "../../assets/icons/trelloicon.svg";
-import apiicon from "../../assets/icons/apiicon.svg";
 import axiosicon from "../../assets/icons/axiosicon.svg";
-import spotifyicon from "../../assets/icons/spotifyicon.svg";
-import netlifyicon from "../../assets/icons/netlifyicon.svg";
 import rendericon from "../../assets/icons/rendericon.svg";
 import jwticon from "../../assets/icons/jwticon.svg";
-import wordpressicon from "../../assets/icons/wordpressicon.svg";
-import shopifyicon from "../../assets/icons/shopifyicon.svg";
-import webflowicon from "../../assets/icons/webflowicon.svg";
-import tastyMockup from "../../assets/img/tasty_mockup.webp";
 import instorMockup from "../../assets/img/instor_mockup.webp";
 import silentmoonMockup from "../../assets/img/silentmoon_mockup.webp"; 
 import profilepicture from "../img/me2.jpg";
@@ -32,15 +21,12 @@ import hardwareicon from "../../assets/icons/hardware-icon.svg";
 import java from "../../assets/icons/java.svg";
 import c from "../../assets/icons/c.svg";
 import python from "../../assets/icons/python.svg";
-import nextjsiconwhite from "../../assets/icons/nextjsiconwhite.svg";
 import ae from "../../assets/icons/after-effects-1.svg";
 import ppc from "../../assets/icons/premiere-pro-cc.svg";
 import ps from "../../assets/icons/adobe-photoshop-2.svg";
 import expressiconwhite from "../../assets/icons/expressiconwhite.svg";
 import { GoHome, GoPerson, GoMail, GoStack, GoProject } from "react-icons/go";
 import { FiGithub, FiLink, FiLinkedin, FiMail } from "react-icons/fi";
-import Imprint from "../../components/Imprint";
-import Privacy from "../../components/Privacy";
 
 export const headerIntroData = {
   title: {
@@ -150,36 +136,36 @@ export const projectsData = [
       projectcolor: "#A5C8E0",
     },
   },
-  {
-    title: "Neuro-Vision App",
-    description: "Description of Project 4.",
-    description_EN: "Description of Project 4 in English.",
-    technologies: [
-      { name: "Html", icon: htmlicon },
-      { name: "CSS", icon: cssicon },
-      { name: "JavaScript", icon: javascripticon },
-      { name: "React", icon: reacticon },
-      { name: "JWT & Bcrypt", icon: jwticon },
-      { name: "Axios", icon: axiosicon },
-      { name: "MongoDB", icon: mongodbicon },
-      { name: "Express", icon: expressiconwhite },
-      { name: "Node.js", icon: nodejsicon },
-      { name: "Figma", icon: figmaicon },
-      { name: "Render", icon: rendericon },
-      { name: "Trello", icon: trelloicon },
-    ],
-    image: instorMockup,
-    deploymenturl: "https://example.com/deployment4",
-    githuburl: "https://github.com/example/project4",
-    githubicon: FiGithub,
-    deploymenticon: FiLink,
-    colors: {
-      main: "main-btn",
-      second: "secondary-btn",
-      icon: "white",
-      projectcolor: "#F0E68C",
-    },
-  },
+  // {
+  //   title: "Neuro-Vision App",
+  //   description: "Description of Project 4.",
+  //   description_EN: "Description of Project 4 in English.",
+  //   technologies: [
+  //     { name: "Html", icon: htmlicon },
+  //     { name: "CSS", icon: cssicon },
+  //     { name: "JavaScript", icon: javascripticon },
+  //     { name: "React", icon: reacticon },
+  //     { name: "JWT & Bcrypt", icon: jwticon },
+  //     { name: "Axios", icon: axiosicon },
+  //     { name: "MongoDB", icon: mongodbicon },
+  //     { name: "Express", icon: expressiconwhite },
+  //     { name: "Node.js", icon: nodejsicon },
+  //     { name: "Figma", icon: figmaicon },
+  //     { name: "Render", icon: rendericon },
+  //     { name: "Trello", icon: trelloicon },
+  //   ],
+  //   image: instorMockup,
+  //   deploymenturl: "https://example.com/deployment4",
+  //   githuburl: "https://github.com/example/project4",
+  //   githubicon: FiGithub,
+  //   deploymenticon: FiLink,
+  //   colors: {
+  //     main: "main-btn",
+  //     second: "secondary-btn",
+  //     icon: "white",
+  //     projectcolor: "#F0E68C",
+  //   },
+  // },
 ] as const;
 
 export const liveTickerData = {
@@ -367,7 +353,7 @@ export const contactData = {
     en: "Contact",
   },
   description: {
-    // en: "Write me a message and I will get back to you.",
+    en: "Write me a message and I will get back to you.",
   },
   inputfields: [
     {

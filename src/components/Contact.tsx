@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 import emailjs from 'emailjs-com';
 import { contactData, toastMessages } from "../assets/lib/data";
@@ -13,10 +13,9 @@ const Contact: React.FC = () => {
   const [subject, setSubject] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [cursor, setCursor] = useState<string>("");
-  const [setLastUpdatedField] = useState<string | null>(null);
   const { ref } = useSectionInView("Contact");
   const { theme } = useTheme();
-  const [error, setError] = useState<string | any>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,10 +30,10 @@ const Contact: React.FC = () => {
 
     try {
       const response = await emailjs.send(
-        'service_xk1a4o8', // replace with your EmailJS service ID
-        'template_qpve2oq', // replace with your EmailJS template ID
+        'service_xk1a4o8', 
+        'template_qpve2oq', 
         templateParams,
-        'QpAZFNFLdN3gl1hp_' // replace with your EmailJS user ID
+        'QpAZFNFLdN3gl1hp_' 
       );
 
       if (response.status === 200) { 
@@ -67,21 +66,7 @@ const Contact: React.FC = () => {
     } else if (name === "message") {
       setMessage(value);
     }
-
-    setLastUpdatedField(name);
   };
-
-  const [cursorBlink, setCursorBlink] = useState<boolean>(true);
-
-  useEffect(() => {
-    const blinkInterval = setInterval(() => {
-      setCursorBlink((prev) => !prev);
-    }, 400);
-
-    return () => {
-      clearInterval(blinkInterval);
-    };
-  }, []);
 
   return (
     <React.Fragment>
@@ -125,14 +110,8 @@ const Contact: React.FC = () => {
                     : message
                 }
                 required
-                onFocus={() => {
-                  handleInputFocus(input.name);
-                  setLastUpdatedField(input.name);
-                }}
-                onMouseEnter={() => {
-                  handleInputFocus(input.name);
-                  setLastUpdatedField(input.name);
-                }}
+                onFocus={() => handleInputFocus(input.name)}
+                onMouseEnter={() => handleInputFocus(input.name)}
                 onChange={handleInputChange}
                 className={`${
                   theme === "dark"
@@ -146,14 +125,8 @@ const Contact: React.FC = () => {
               rows={contactData.textarea.rows}
               placeholder={contactData.textarea.placeholder.en}
               name={contactData.textarea.name}
-              onFocus={() => {
-                handleInputFocus(contactData.textarea.name);
-                setLastUpdatedField(contactData.textarea.name);
-              }}
-              onMouseEnter={() => {
-                handleInputFocus(contactData.textarea.name);
-                setLastUpdatedField(contactData.textarea.name);
-              }}
+              onFocus={() => handleInputFocus(contactData.textarea.name)}
+              onMouseEnter={() => handleInputFocus(contactData.textarea.name)}
               onChange={handleInputChange}
               className={`${
                 theme === "dark"
@@ -171,6 +144,9 @@ const Contact: React.FC = () => {
               type="submit"
               elementType="input"
             />
+            {error && (
+              <p className="text-red-500 mt-2">{error}</p>
+            )}
             <ToastContainer
               className="w-max text-3xl block p-3 max-lg:w-full"
               position="bottom-center"
