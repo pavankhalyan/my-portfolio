@@ -19,7 +19,7 @@ const AboutMe: React.FC = () => {
   });
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
-  const onAutoplayTimeLeft = (_s: any, time: number, progress: number) => {
+  const onAutoplayTimeLeft = (_s: null, time: number, progress: number) => {
     if (progressCircle.current && progressContent.current) {
       progressCircle.current.style.setProperty(
         "--progress",
@@ -30,7 +30,6 @@ const AboutMe: React.FC = () => {
   };
   const paragraphs = aboutMeData.paragraphs_EN;
 
-  // Dummy data for demonstration, replace with actual values as needed
   const projectsDone = 5;
   const leetcodeCount = 50;
   const appsDeveloped = 3;
@@ -51,11 +50,7 @@ const AboutMe: React.FC = () => {
               <span className="text-orange">&lt;</span>
               {aboutMeData.title_EN}
               <span className="text-orange">/&gt;</span>
-            </p>
-
-            <h2 className="text-[--black] text-center max-lg:text-left break-words">
-              {aboutMeData.description_EN}
-            </h2>
+            </p>            
           </motion.div>
         </div>
         <div className="flex flex-row justify-center gap-6 items-center pl-32 pr-32 mb-16 max-lg:flex-col max-lg:p-16 min-[1921px]:px-[45rem] min-[1921px]:mb-48">

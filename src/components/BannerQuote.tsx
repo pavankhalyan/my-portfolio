@@ -39,7 +39,7 @@ const BannerQuote: React.FC<BannerProps> = ({
             <p className="text-[--grey]">{quotesData[0].author}</p>
           </div>
         </div>
-      </section>
+      </section>             
     </React.Fragment>
   ) : (
     <React.Fragment>

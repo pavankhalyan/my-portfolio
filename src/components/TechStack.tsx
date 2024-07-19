@@ -23,10 +23,11 @@ const TechStack: React.FC = () => {
   });
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+
   return (
     <React.Fragment>
       <section
-        className="relative tech-stack max-lg:p-16 "
+        className="relative tech-stack max-lg:p-16"
         id="skills"
         ref={ref}
       >
@@ -35,7 +36,7 @@ const TechStack: React.FC = () => {
           opacity={theme === "light" ? "opacity-30" : "opacity-30"}
           position="top-[55rem]"
         />
-        <div className="title-container flex flex-col justify-center items-center p-32 w-1/2   gap-6 min-[1921px]:px-[55rem] max-lg:p-0  max-lg:w-full max-lg:items-start max-lg:py-16 ">
+        <div className="title-container flex flex-col justify-center items-center p-32 w-1/2 gap-6 min-[1921px]:px-[55rem] max-lg:p-0 max-lg:w-full max-lg:items-start max-lg:py-16">
           <motion.div
             ref={animationReference}
             style={{
@@ -48,9 +49,9 @@ const TechStack: React.FC = () => {
               <span className="text-[--orange]">/&gt;</span>
             </p>
             <h2>
-              {language === "DE"
-                ? "Meine Techstack und Skills"
-                : "My TechStack and Skills"}
+              {language === "EN"
+                ? "My TechStack and Skills"
+                : "Content not available in selected language"}
             </h2>
           </motion.div>
         </div>
@@ -58,7 +59,7 @@ const TechStack: React.FC = () => {
           <div className="w-1/3 max-lg:w-full">
             <SkillSection skillsData={skillsDataWeb} theme={theme} />
           </div>
-          <div className="flex flex-col h-[inherit]  justify-around max-lg:gap-40">
+          <div className="flex flex-col h-[inherit] justify-around max-lg:gap-40">
             <SkillSection skillsData={skillsDataDesign} theme={theme} />
             <SkillSection skillsData={skillsDataCMS} theme={theme} />
           </div>
