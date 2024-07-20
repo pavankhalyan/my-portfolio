@@ -22,10 +22,10 @@ const Contact: React.FC = () => {
     setError(null);
 
     const templateParams = {
-      name,
-      email,
-      subject,
-      message,
+      user_name: name,
+      user_email: email,
+      from_name: name,
+      message: message,
     };
 
     try {

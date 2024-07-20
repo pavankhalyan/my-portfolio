@@ -331,19 +331,19 @@ export const aboutMeData = {
     {
       title: "ABOUT ME ",
       description:
-        "I'm Pavan Khalyan from Electronics Communication Engineering,Sri Eshwar College Of Engineering.And I finished my schooling in St.Joseph.Mat.Hr.Sec.School in Hosur ",
+        "I'm Pavan Khalyan,an Electronics Communication Engineering student at Sri Eshwar College of Engineering, with a strong foundation from St. Joseph's Matriculation Higher Secondary School in Hosur.",
       icon: hardwareicon,
     },
     {
       title: "On the Fast Lane of Life",
       description:
-        "Besides coding, am really passionate in doing projects and extracurricular activities like video editing,videographer and photographer",
+        "Beyond coding, I'm passionate about projects and extracurriculars like video editing, videography, and photography.",
       icon: caricon,
     },
     {
       title: "The Joy of Discovery as a Life Motto",
       description:
-        "My journey as a web developer is one part of my life path. I live by the motto that the adventure only begins when you leave the familiar behind. Discovering new places and cultures is my form of creative inspiration.",
+        "Embracing the Joy of Discovery as my life motto fuels my passion for continuous learning and exploration. Whether it's diving into new coding projects, capturing moments through a lens, or mastering the art of video editing, I thrive on the excitement of uncovering new skills and knowledge.",
       icon: travelicon,
     },
   ],
