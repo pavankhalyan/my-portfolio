@@ -4,7 +4,7 @@ import { navLinks } from "../assets/lib/data";
 import ScrollToAnchor from "./Listener";
 import { useActiveSectionContext } from "../context/active-section-context";
 import { useTheme } from "../context/theme-context";
-import LanguageSwitch from "./LanguageSwitch";
+
 
 const NavBar: React.FC = () => {
   const { theme } = useTheme();
@@ -123,7 +123,6 @@ const NavBar: React.FC = () => {
               )}
             </CustomNavLink>
           ))}
-          <LanguageSwitch />
         </nav>
       )}
       {isMobileMenuActive && (
@@ -157,7 +156,6 @@ const NavBar: React.FC = () => {
               )}
             </CustomNavLink>
           ))}
-          <LanguageSwitch />
         </nav>
       )}
     </React.Fragment>

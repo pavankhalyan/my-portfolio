@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { useSectionInView } from "../assets/lib/hooks";
+import SwiperCore from "swiper";
 
 const AboutMe: React.FC = () => {
   const progressCircle = useRef<SVGSVGElement | null>(null);
@@ -20,7 +21,8 @@ const AboutMe: React.FC = () => {
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
-  const onAutoplayTimeLeft = (time: number, progress: number) => {
+  // Explicitly typing the parameter as SwiperCore
+  const onAutoplayTimeLeft = (_: SwiperCore, time: number, progress: number) => {
     if (progressCircle.current && progressContent.current) {
       progressCircle.current.style.setProperty(
         "--progress",
@@ -52,7 +54,7 @@ const AboutMe: React.FC = () => {
               <span className="text-orange">&lt;</span>
               {aboutMeData.title_EN}
               <span className="text-orange">/&gt;</span>
-            </p>            
+            </p>
           </motion.div>
         </div>
         <div className="flex flex-row justify-center gap-6 items-center pl-32 pr-32 mb-16 max-lg:flex-col max-lg:p-16 min-[1921px]:px-[45rem] min-[1921px]:mb-48">
@@ -65,7 +67,7 @@ const AboutMe: React.FC = () => {
               <strong>Leetcode Count:</strong> {leetcodeCount}
             </p>
             <p className="text-4xl">
-              <strong>Number of App Developed:</strong> {appsDeveloped}
+              <strong>Number of Apps Developed:</strong> {appsDeveloped}
             </p>
           </div>
           <Swiper
@@ -79,7 +81,7 @@ const AboutMe: React.FC = () => {
               clickable: true,
             }}
             modules={[Autoplay, Pagination, Navigation]}
-            onAutoplayTimeLeft={(swiper, time, progress) => onAutoplayTimeLeft(time, progress)}
+            onAutoplayTimeLeft={onAutoplayTimeLeft}
             className="w-1/2 pt-32 relative z-2 pr-20 pb-32 pl-20 max-lg:w-full max-lg:pt-16 max-lg:pb-16 max-lg:pl-0 max-lg:pr-0 min-[1921px]:w-1/2"
           >
             {paragraphs.map((paragraph, index) => (
