@@ -6,15 +6,6 @@ const ServiceStatus: React.FC = () => {
   const [status, setStatus] = useState("");
   const apiServiceStatusURL = import.meta.env.VITE_API_SERVICESTATUS_URL || "";
 
-  const statusColor = () => {
-    if (status === "operational") {
-      return "!text-green-500";
-    } else if (status === "downtime") {
-      return "!text-yellow-500";
-    } else if (status === "degraded") {
-      return "!text-red-500";
-    }
-  };
   const iconColor = () => {
     if (status === "operational") {
       return "bg-green-500";
@@ -36,7 +27,8 @@ const ServiceStatus: React.FC = () => {
     }
 
     getStatusData();
-  }, []);
+  }, [apiServiceStatusURL]);
+
   return (
     <React.Fragment>
       <Link to="https://status.alpaycelik.dev">
@@ -46,7 +38,7 @@ const ServiceStatus: React.FC = () => {
               className={`status-icon-inner absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 ${iconColor()} rounded-[inherit]`}
             ></div>
             <div
-              className={`status-icon-wave  w-[inherit] h-[inherit] rounded-[inherit] ${iconColor()}   animate-ping `}
+              className={`status-icon-wave w-[inherit] h-[inherit] rounded-[inherit] ${iconColor()} animate-ping`}
             ></div>
           </div>
           {/* <p className={`status-text ${statusColor()} `}>Status: {status}</p> */}
