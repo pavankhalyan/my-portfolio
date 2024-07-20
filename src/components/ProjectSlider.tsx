@@ -1,7 +1,7 @@
 import bannerBg from "../assets/img/bannerbg.webp";
 import projectImage from "../assets/img/photo.png";
 import secondProjectImage from "../assets/img/Screenshot 2024-07-02 144358.png";
-import freshifyAppImage from "../assets/img/freshify-app.png";  // Import the new image
+import freshifyAppImage from "../assets/img/freshify-app.png";  
 import React, { useRef } from "react";
 import Button from "./Button";
 import LiveTicker from "./ParallaxText";
@@ -51,7 +51,7 @@ const ProjectSlider: React.FC = () => {
           theme="light"
         />
         <div
-             className="quote-outer-container bg-[--darkblue] -rotate-3 flex justify-center items-center scale-110 pt-32 pb-32 max-lg:pt-16 max-lg:pb-16 max-lg:-ml-44 max-lg:-mr-44 max-lg:scale-100"
+          className="quote-outer-container bg-[--darkblue] -rotate-3 flex justify-center items-center scale-110 pt-32 pb-32 max-lg:pt-16 max-lg:pb-16 max-lg:-ml-44 max-lg:-mr-44 max-lg:scale-100"
           style={{
             backgroundImage: `url(${bannerBg})`,
             backgroundPosition: "center",
@@ -99,15 +99,11 @@ const ProjectSlider: React.FC = () => {
                 >
                   <div className="w-[55%] flex flex-col gap-12 justify-between">
                     <h2>{project.title}</h2>
-                    <p className="text-white">
-                      {project.description_EN}
-                    </p>
+                    <p className="text-white">{project.description_EN}</p>
                     {index > 1 && (
                       <>
                         <div className="technologies">
-                          <h3>
-                            Technologies
-                          </h3>
+                          <h3>Technologies</h3>
                           <div className="grid grid-cols-6 gap-10 p-4">
                             {project.technologies.map(
                               (technology, innerIndex: number) => (
@@ -131,6 +127,12 @@ const ProjectSlider: React.FC = () => {
                             buttoncolor={project.colors.main}
                             iconcolor={project.colors.icon}
                           />
+                          <button
+                            onClick={notifyServerRequest}
+                            className="notify-button"
+                          >
+                            Notify Server Request
+                          </button>
                         </div>
                       </>
                     )}
@@ -142,7 +144,7 @@ const ProjectSlider: React.FC = () => {
                           ? projectImage
                           : index === 1
                           ? secondProjectImage
-                          : index === 2  // Use freshify-app.png for the third slide
+                          : index === 2 
                           ? freshifyAppImage
                           : project.image
                       }
@@ -165,7 +167,7 @@ const ProjectSlider: React.FC = () => {
                       ? projectImage
                       : index === 1
                       ? secondProjectImage
-                      : index === 2  // Use freshify-app.png for the third slide
+                      : index === 2 // Use freshify-app.png for the third slide
                       ? freshifyAppImage
                       : project.image
                   }
@@ -182,14 +184,18 @@ const ProjectSlider: React.FC = () => {
                         buttoncolor={project.colors.main}
                         iconcolor={project.colors.icon}
                       />
+                      <button
+                        onClick={notifyServerRequest}
+                        className="notify-button"
+                      >
+                        Notify Server Request
+                      </button>
                     </div>
                     <p className="text-white max-lg:text-4xl">
                       {project.description_EN}
                     </p>
                     <div className="technologies">
-                      <h3 className="text-white">
-                        Technologies
-                      </h3>
+                      <h3 className="text-white">Technologies</h3>
                       <div className="grid grid-cols-3 gap-10 p-4">
                         {project.technologies.map(
                           (technology, innerIndex: number) => (

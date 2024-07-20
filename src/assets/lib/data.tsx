@@ -317,6 +317,7 @@ export const sideBarLeftSocials = [
 export const quotesData = [
   {
     en: `"IF YOU HAVE A DREAM TO CHASE, NOTHING CAN STOP YOU"`,
+    author : "-BY LIONEL MESSI"
   },
   {
     en: `"ALL THAT LOVE YOU GAVE ME,THAT'S WHAT MADE ME"`,

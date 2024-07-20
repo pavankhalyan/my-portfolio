@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { aboutMeData } from "../assets/lib/data";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperType } from "swiper";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -19,7 +20,7 @@ const AboutMe: React.FC = () => {
   });
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
-  const onAutoplayTimeLeft = (_s: null, time: number, progress: number) => {
+  const onAutoplayTimeLeft = (swiper: SwiperType, time: number, progress: number) => {
     if (progressCircle.current && progressContent.current) {
       progressCircle.current.style.setProperty(
         "--progress",

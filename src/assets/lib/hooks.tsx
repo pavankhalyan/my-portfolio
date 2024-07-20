@@ -22,9 +22,12 @@ export function useSectionInView(sectionName: SectionName, threshold = 0.75) {
 }
 
 export function useMousePosition() {
-  const [mousePosition, setMousePosition] = useState({ x: null, y: null });
+  const [mousePosition, setMousePosition] = useState<{ x: number | null, y: number | null }>({
+    x: null,
+    y: null,
+  });
 
-  const updateMousePosition = (e: any) => {
+  const updateMousePosition = (e: MouseEvent) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
   };
 
