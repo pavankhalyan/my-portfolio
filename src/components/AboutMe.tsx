@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { aboutMeData } from "../assets/lib/data";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Swiper as SwiperType } from "swiper";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -20,7 +19,8 @@ const AboutMe: React.FC = () => {
   });
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
-  const onAutoplayTimeLeft = (swiper: SwiperType, time: number, progress: number) => {
+
+  const onAutoplayTimeLeft = (time: number, progress: number) => {
     if (progressCircle.current && progressContent.current) {
       progressCircle.current.style.setProperty(
         "--progress",
@@ -29,6 +29,7 @@ const AboutMe: React.FC = () => {
       progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
     }
   };
+
   const paragraphs = aboutMeData.paragraphs_EN;
 
   const projectsDone = 5;
@@ -78,7 +79,7 @@ const AboutMe: React.FC = () => {
               clickable: true,
             }}
             modules={[Autoplay, Pagination, Navigation]}
-            onAutoplayTimeLeft={onAutoplayTimeLeft}
+            onAutoplayTimeLeft={(swiper, time, progress) => onAutoplayTimeLeft(time, progress)}
             className="w-1/2 pt-32 relative z-2 pr-20 pb-32 pl-20 max-lg:w-full max-lg:pt-16 max-lg:pb-16 max-lg:pl-0 max-lg:pr-0 min-[1921px]:w-1/2"
           >
             {paragraphs.map((paragraph, index) => (
