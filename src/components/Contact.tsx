@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Button from "./Button";
-import emailjs from 'emailjs-com';
 import { contactData, toastMessages } from "../assets/lib/data";
 import { useSectionInView } from "../assets/lib/hooks";
 import { ToastContainer, toast } from "react-toastify";
@@ -21,22 +20,23 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setError(null);
 
-    const templateParams = {
-      user_name: name,
-      user_email: email,
-      from_name: name,
-      message: message,
+    const contactData = {
+      name,
+      email,
+      subject,
+      message,
     };
 
     try {
-      const response = await emailjs.send(
-        'service_xk1a4o8', 
-        'template_qpve2oq', 
-        templateParams,
-        'QpAZFNFLdN3gl1hp_' 
-      );
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(contactData),
+      });
 
-      if (response.status === 200) { 
+      if (response.status === 201) {
         toast.success(toastMessages.successEmailSent.en);
       } else {
         throw new Error('Failed to send email');
