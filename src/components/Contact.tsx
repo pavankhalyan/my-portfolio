@@ -5,6 +5,7 @@ import { useSectionInView } from "../assets/lib/hooks";
 import { ToastContainer, toast } from "react-toastify";
 import { useTheme } from "../context/theme-context";
 import "react-toastify/dist/ReactToastify.css";
+import emailjs from 'emailjs-com';
 
 const Contact: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -20,24 +21,27 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setError(null);
 
-    const contactData = {
-      name,
-      email,
+    const templateParams = {
+      user_name: name,
+      user_email: email,
       subject,
       message,
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(contactData),
-      });
+      const response = await emailjs.send(
+        'service_xk1a4o8', // Replace with your EmailJS service ID
+        'template_qpve2oq', // Replace with your EmailJS template ID
+        templateParams,
+        'QpAZFNFLdN3gl1hp_' // Replace with your EmailJS user ID
+      );
 
-      if (response.status === 201) {
+      if (response.status === 200) {
         toast.success(toastMessages.successEmailSent.en);
+        setName("");
+        setEmail("");
+        setSubject("");
+        setMessage(""); // Clear form fields after successful submission
       } else {
         throw new Error('Failed to send email');
       }
@@ -115,8 +119,8 @@ const Contact: React.FC = () => {
                 onChange={handleInputChange}
                 className={`${
                   theme === "dark"
-                    ? "bg-[--blackblue] dark-mode-shadow "
-                    : "bg-[--icewhite] dark-shadow "
+                    ? "bg-[--blackblue] dark-mode-shadow"
+                    : "bg-[--icewhite] dark-shadow"
                 } w-full p-3 rounded-lg border border-gray-300 outline-none focus:border-blue-500`}
                 style={{ width: "65%" }}
               />
@@ -125,6 +129,7 @@ const Contact: React.FC = () => {
               rows={contactData.textarea.rows}
               placeholder={contactData.textarea.placeholder.en}
               name={contactData.textarea.name}
+              value={message}
               onFocus={() => handleInputFocus(contactData.textarea.name)}
               onMouseEnter={() => handleInputFocus(contactData.textarea.name)}
               onChange={handleInputChange}

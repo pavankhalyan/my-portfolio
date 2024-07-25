@@ -242,9 +242,9 @@ export const skillsDataDesign = [
     skills: [
       { title: "C", hash: "#C", icon: c, color: "#1572B6" },
       {
-        title: "Java",
-        hash: "#Java",
-        icon: java,
+        title: "Javascript",
+        hash: "#Javascript",
+        icon: javascripticon,
         color: "#F1662A",
       },
       { title: "Python", hash: "#python", icon: python, color: "#F7DF1E" },
