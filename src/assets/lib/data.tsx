@@ -1,8 +1,8 @@
 import figmaicon from "../../assets/icons/figmaicon.svg";
+import firebaseicon from "../../assets/icons/firebaseicon.svg";
 import htmlicon from "../../assets/icons/htmlicon.svg";
 import cssicon from "../../assets/icons/cssicon.svg";
 import javascripticon from "../../assets/icons/javascripticon.svg";
-import typescripticon from "../../assets/icons/typescripticon.svg";
 import reacticon from "../../assets/icons/reacticon.svg";
 import nodejsicon from "../../assets/icons/nodejsicon.svg";
 import tailwindcssicon from "../../assets/icons/tailwindicon.svg";
@@ -18,7 +18,6 @@ import profilepicture from "../img/me2.jpg";
 import caricon from "../../assets/icons/car-icon.svg";
 import travelicon from "../../assets/icons/travel-icon.svg";
 import hardwareicon from "../../assets/icons/hardware-icon.svg";
-import java from "../../assets/icons/java.svg";
 import c from "../../assets/icons/c.svg";
 import python from "../../assets/icons/python.svg";
 import ae from "../../assets/icons/after-effects-1.svg";
@@ -120,10 +119,8 @@ export const projectsData = [
     description_EN: "Freshify revolutionizes fruit and vegetable preservation using ethylene gas sensors and NODE MCU technology. By deploying these sensors in storage units, the system detects ripeness in real-time. When produce reaches optimal ripeness, Freshify promptly notifies customers, ensuring peak freshness.",
     technologies: [
       { name: "JavaScript", icon: javascripticon },
-      { name: "React", icon: reacticon },
-      { name: "MongoDB", icon: mongodbicon },
-      { name: "Express", icon: expressiconwhite },
-      { name: "Node.js", icon: nodejsicon },
+      { name: "React", icon: reacticon }, 
+      { name: "firebase", icon: firebaseicon },
       { name: "Figma", icon: figmaicon },
     ],
     image: silentmoonMockup,
@@ -197,10 +194,10 @@ export const skillsDataWeb = [
         color: "#F7DF1E",
       },
       {
-        title: "TypeScript",
-        hash: "#TypeScript",
-        icon: typescripticon,
-        color: "#007ACC",
+        title: "Firebase",
+        hash: "#Firebase",
+        icon: firebaseicon,
+        color: "#FF8F00",
       },
       {
         title: "React",
@@ -231,7 +228,7 @@ export const skillsDataWeb = [
         hash: "#Express",
         icon: [expressicon, expressiconwhite],
         color: ["#000000", "#FFFFFF"],
-      }
+      },
     ],
   },
 ] as const;
@@ -245,7 +242,7 @@ export const skillsDataDesign = [
         title: "Javascript",
         hash: "#Javascript",
         icon: javascripticon,
-        color: "#F1662A",
+        color: "#F7DF1E",
       },
       { title: "Python", hash: "#python", icon: python, color: "#F7DF1E" },
     ],

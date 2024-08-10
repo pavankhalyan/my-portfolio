@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
         'service_xk1a4o8', // Replace with your EmailJS service ID
         'template_qpve2oq', // Replace with your EmailJS template ID
         templateParams,
-        'QpAZFNFLdN3gl1hp_' // Replace with your EmailJS user ID
+        'QpAZFNFLdN3gl1hp_' 
       );
 
       if (response.status === 200) {
@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
         setName("");
         setEmail("");
         setSubject("");
-        setMessage(""); // Clear form fields after successful submission
+        setMessage(""); 
       } else {
         throw new Error('Failed to send email');
       }
