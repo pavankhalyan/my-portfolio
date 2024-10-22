@@ -188,7 +188,7 @@ const ProjectSlider: React.FC = () => {
                         onClick={notifyServerRequest}
                         className="notify-button"
                       >
-                        Notify Server Request
+                       .
                       </button>
                     </div>
                     <p className="text-white max-lg:text-4xl">

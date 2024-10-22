@@ -10,6 +10,7 @@ import mongodbicon from "../../assets/icons/mongoicon.svg";
 import expressicon from "../../assets/icons/expressicon.svg";
 import trelloicon from "../../assets/icons/trelloicon.svg";
 import axiosicon from "../../assets/icons/axiosicon.svg";
+
 import rendericon from "../../assets/icons/rendericon.svg";
 import jwticon from "../../assets/icons/jwticon.svg";
 import instorMockup from "../../assets/img/instor_mockup.webp";
@@ -17,7 +18,7 @@ import silentmoonMockup from "../../assets/img/silentmoon_mockup.webp";
 import profilepicture from "../img/me2.jpg";
 import caricon from "../../assets/icons/car-icon.svg";
 import travelicon from "../../assets/icons/travel-icon.svg";
-import hardwareicon from "../../assets/icons/hardware-icon.svg";
+import hardwareicon from "../../assets/icons/hardware-icon.svg"; 
 import c from "../../assets/icons/c.svg";
 import python from "../../assets/icons/python.svg";
 import ae from "../../assets/icons/after-effects-1.svg";
@@ -134,22 +135,14 @@ export const projectsData = [
     },
   },
   {
-    title: "Aqua-Vi",
+    title: "Aqua-Vision",
     description: "Description of Project 4.",
     description_EN: "Aqua Vision is a sensor-based solution for blind paralympics swimmers,replacing tapper with ultrasonic sensors and ESP32 Dev modules.It detects wall approach and lane deviation, alerting swimmers via vibrators in a cap and belt.Performance data is sent to the cloud for live tracking via a web interface",
     technologies: [
-      { name: "Html", icon: htmlicon },
-      { name: "CSS", icon: cssicon },
-      { name: "JavaScript", icon: javascripticon },
       { name: "React", icon: reacticon },
-      { name: "JWT & Bcrypt", icon: jwticon },
-      { name: "Axios", icon: axiosicon },
       { name: "MongoDB", icon: mongodbicon },
       { name: "Express", icon: expressiconwhite },
-      { name: "Node.js", icon: nodejsicon },
-      { name: "Figma", icon: figmaicon },
-      { name: "Render", icon: rendericon },
-      { name: "Trello", icon: trelloicon },
+      { name: "Node.js", icon: nodejsicon }, 
     ],
     image: instorMockup,
     deploymenturl: "https://example.com/deployment4",
