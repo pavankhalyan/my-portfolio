@@ -35,7 +35,7 @@ const AboutMe: React.FC = () => {
   const paragraphs = aboutMeData.paragraphs_EN;
 
   const projectsDone = 5;
-  const leetcodeCount = 50;
+  const leetcodeCount = 100 ;
   const appsDeveloped = 3;
 
   return (
